@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Fruits</title>
+</head>
+<body>
+
+    <script>
+        // Declare an array of favorite fruits
+        const favoriteFruits = ['Apple', 'Banana', 'Orange', 'Strawberry', 'Grapes', 'Watermelon', 'Mango', 'Pineapple', 'Blueberry', 'Peach', 'Cherry', 'Kiwi', 'Pomegranate', 'Cantaloupe', 'Raspberry', 'Blackberry', 'Dragon Fruit', 'Avocado', 'Papaya'];
+
+        // Use document.write to display each fruit on the web page
+        document.write('<h2>My Favorite Fruits:</h2>');
+        document.write('<ul>');
+
+        for (let i = 0; i < favoriteFruits.length; i++) {
+            // Use document.write to add each fruit to the list
+            document.write('<li>' + favoriteFruits[i] + '</li>');
+        }
+
+        document.write('</ul>');
+    </script>
+</body>
+</html>

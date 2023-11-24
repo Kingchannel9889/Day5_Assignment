@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4 </title>
+</head>
+<body>
+    <center>
+    <button id="myButton">Click me</button>
+    <p id="myParagraph">This is a paragraph.</p>
+    </center>
+    <script>
+        const myButton = document.getElementById('myButton');
+        const myParagraph = document.getElementById('myParagraph');
+
+        // Array of custom messages
+        const customMessages = [
+            'Button clicked! This is message 1.',
+            'Great choice! This is message 2.',
+            'You clicked again! This is message 3.',
+            'Keep clicking! This is message 4.'
+        ];
+
+        // Counter to keep track of the current message index
+        let messageIndex = 0;
+
+        // Add an event listener to the button
+        myButton.addEventListener('click', function() {
+            // Change the content of the paragraph based on the current message index
+            myParagraph.textContent = customMessages[messageIndex];
+
+            // Increment the message index, and loop back to the beginning if it exceeds the array length
+            messageIndex = (messageIndex + 1) % customMessages.length;
+        });
+    </script>
+</body>
+</html>

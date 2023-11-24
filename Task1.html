@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+            margin: 0;
+        }
+
+        section {
+            text-align: center;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 10px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Welcome To Our JavaScript Calculator!</h1>
+        <form id="calculatorForm">
+            <label for="num1">Enter your first number:</label>
+            <input type="text" id="num1">
+            <br><br>
+            <label for="num2">Enter your second number:</label>
+            <input type="text" id="num2">
+            <br><br>
+            <label>What Arithmetic Operation do you want to choose?
+                <select id="operation" name="operation">
+                    <option value="#" disabled selected>(select one)</option>
+                    <option value="1">Addition</option>
+                    <option value="2">Subtraction</option>
+                    <option value="3">Multiplication</option>
+                    <option value="4">Division</option>
+                </select>
+            </label>
+
+            <button type="button" onclick="cal()">Calculate</button>
+            <button type="button" onclick="resetForm()">Reset</button>
+        </form>
+        <p id="answer"></p>
+    </section>
+
+    <script>
+        function cal() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var ope = document.getElementById("operation").value;
+            var resultElement = document.getElementById("answer");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultElement.innerText = "Your input is invalid.";
+                return;
+            }
+
+            if (ope === "1") {
+                resultElement.innerText = "Here is your answer: " + (num1 + num2);
+            } else if (ope === "2") {
+                resultElement.innerText = "Here is your answer: " + (num1 - num2);
+            } else if (ope === "3") {
+                resultElement.innerText = "Here is your answer: " + (num1 * num2);
+            } else if (ope === "4") {
+                if (num2 !== 0) {
+                    resultElement.innerText = "Here is your answer: " + (num1 / num2);
+                } else {
+                    resultElement.innerText = "Division by zero is not allowed.";
+                }
+            } else {
+                resultElement.innerText = "Your input is wrong.";
+            }
+        }
+
+        function resetForm() {
+            document.getElementById("calculatorForm").reset();
+            document.getElementById("answer").innerText = "";
+        }
+    </script>
+</body>
+</html>
+

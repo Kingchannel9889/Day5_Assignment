@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 10px;
+        }
+
+        #result {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #inputString {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="reverseForm">
+        <h1>Input The String And Reverse It</h1>
+        <div class="input-container">
+            <label for="inputString">Enter a string:</label>
+            <input type="text" id="inputString" name="inputString" required>
+            <button type="button" onclick="reverseString()">Reverse String</button>
+            <button type="button" onclick="resetForm()">Reset</button>
+        </div>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function reverseString() {
+            var inputString = document.getElementById("inputString").value;
+            var resultElement = document.getElementById("result");
+
+            // Check if the input string is not empty
+            if (inputString.trim() === "") {
+                alert("Please enter a valid string.");
+                return;
+            }
+
+            // Use the reverseString function to reverse the string
+            var reversedString = inputString.split('').reverse().join('');
+
+            // Display the result
+            resultElement.innerText = "\nReversed String: " + reversedString;
+        }
+
+        function resetForm() {
+            document.getElementById("reverseForm").reset();
+            document.getElementById("result").innerText = "";
+        }
+    </script>
+</body>
+</html>
